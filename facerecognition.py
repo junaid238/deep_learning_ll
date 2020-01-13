@@ -1,25 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[68]:
-
-
 import PIL.Image
 import PIL.ImageDraw
 import face_recognition
 
-
-# In[24]:
-
-
+# detection of face using face_recognition module
 image = face_recognition.load_image_file("/Users/digitallync/Desktop/IMG_1760.JPG")
 face_locations = face_recognition.face_locations(image)
 no_of_faces = len(face_locations)
 print("total faces detected are %d"%(no_of_faces))
-
-
-# In[25]:
-
 
 pil_image = PIL.Image.fromarray(image)
 for face_location in face_locations:
@@ -29,13 +16,11 @@ for face_location in face_locations:
 pil_image.show()
 
 
-# In[26]:
-
-
 # face landmark estimation -> 68 landmarks 
 # point of various parts of face , example -->nose , eyes , eyebrows . . 
 # face alignment --> landmark estimation 
 # face should be straight 
+
 image = face_recognition.load_image_file("/Users/digitallync/Desktop/IMG_1760.JPG")
 face_landmarks_list = face_recognition.face_landmarks(image)
 no_of_faces = len(face_landmarks_list)
@@ -275,10 +260,3 @@ for file in os.listdir(path):
             elif results[3]:
                 name = "radha"
             print(f"Found {name} in the "+file)
-
-
-# In[ ]:
-
-
-
-
